@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "FocusGuard",
+    "version": "1.0",
+    "description": "Monitors the user's eye movement and presence in front of the camera, and triggers an alarm if the user's eyes are found to be closed for more than 10 seconds or outside the camera frame for more than 30 seconds.",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs",
+      "scripting",
+      "notifications",
+      "host",
+      "camera",
+      "mediaStreamVideo"
+    ],
+    "host_permissions": [
+      "https://*/",
+      "http://*/"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_icon": "eye-icon.png",
+      "default_popup": "popup.html"
+    }
+  }
+  
